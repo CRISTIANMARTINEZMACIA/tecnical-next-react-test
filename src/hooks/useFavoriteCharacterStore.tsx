@@ -9,14 +9,16 @@ interface FavoriteCharacterProps {
 
 export const useFavoriteCharacterStore = create<FavoriteCharacterProps>(
   (set, get) => ({
-    characterFavorite: [],
+    characterFavorite:
+      JSON.parse(localStorage.getItem(`characters`) ?? "") ?? [],
     setCharacterFavorite: (characterFavorite) => {
       set({
         characterFavorite: [...get().characterFavorite, characterFavorite],
       });
+
       localStorage.setItem(
-        `character${characterFavorite.id}`,
-        Object.values(characterFavorite).join(";")
+        `characters`,
+        JSON.stringify([...get().characterFavorite])
       );
     },
     removeCharacterFavorite: (id) => {
@@ -25,8 +27,10 @@ export const useFavoriteCharacterStore = create<FavoriteCharacterProps>(
           (item) => item.id != id
         ),
       });
-      localStorage.removeItem(
-        `character${id}`);
+      localStorage.setItem(
+        `characters`,
+        JSON.stringify([...get().characterFavorite])
+      );
     },
   })
 );

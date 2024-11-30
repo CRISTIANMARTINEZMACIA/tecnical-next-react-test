@@ -50,4 +50,4 @@ Se explica la organizacion del proyecto, explicando carpeta por carpeta
 
 ## FUNCIONALIDAD
 
-Se agrego el consultar personaje, agregar y/o quitar favoritos, la visualizacion de mapa, el filtro del personaje por nombre, el detalle del personaje y el guardado y eliminado en localStorage de los favoritos, no se hizo el recuperar ese estado
+Se agrego el consultar personaje, agregar y/o quitar favoritos, la visualizacion de mapa, el filtro del personaje por nombre, el detalle del personaje y el guardado y eliminado en localStorage de los favoritos e inicializar el estado de los personajes favoritos con lo almacenado en localStorage

@@ -2,9 +2,8 @@
 import { Character } from "@/model";
 import { CharacterCard } from "./CharacterCard";
 import Pagination from "../atomics/pagination";
-import { notFound, useSearchParams } from "next/navigation";
-import { Suspense, useEffect } from "react";
-import { getCharacter } from "@/services";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { useFavoriteCharacterStore } from "@/hooks";
 
 interface CharacterProps {
@@ -13,8 +12,6 @@ interface CharacterProps {
 }
 
 export const CharacterMap = ({ characters, page }: CharacterProps) => {
-  
-  
   return (
     <div className="gap-1">
       <div className="flex flex-wrap gap-6 justify-center">
@@ -29,7 +26,7 @@ export const CharacterMap = ({ characters, page }: CharacterProps) => {
   );
 };
 
-export const SuspenseWrapperFavorite =  () => {
+export const SuspenseWrapperFavorite = () => {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams?.get("page") ?? "1");
   const startSlice = page === 1 ? 0 : (page - 1) * 3;
