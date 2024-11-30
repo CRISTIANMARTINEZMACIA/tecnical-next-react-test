@@ -1,0 +1,1 @@
+export { useFavoriteCharacterStore } from "./useFavoriteCharacterStore";

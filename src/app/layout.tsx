@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Sidebar } from "@/components";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +32,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div
+          className={`${poppins.className} bg-slate-100 overflow-y-scroll w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white`}
+        >
+          <div className="flex">
+            <Sidebar />
+
+            <div className="ml-64 p-4 w-full text-slate-900">{children}</div>
+          </div>
+        </div>
       </body>
     </html>
   );
