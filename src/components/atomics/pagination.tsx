@@ -1,6 +1,6 @@
 "use client";
 
-import { generatePagination } from "@/lib";
+import { generatePagination } from "@/utils";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { usePathname, useSearchParams } from "next/navigation";
